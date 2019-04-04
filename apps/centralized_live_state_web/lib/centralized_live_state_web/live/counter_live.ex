@@ -15,16 +15,22 @@ defmodule CentralizedLiveStateWeb.CounterLive do
 
   @impl true
   def mount(_session, socket) do
-    {:ok, assign(socket, :count, 0)}
+    {:ok, assign(socket, :count, Counter.State.subscribe())}
   end
 
   @impl true
   def handle_event("inc", _, socket) do
-    {:noreply, update(socket, :count, &(&1 + 1))}
+    Counter.State.inc()
+    {:noreply, socket}
   end
 
   @impl true
   def handle_event("dec", _, socket) do
-    {:noreply, update(socket, :count, &(&1 - 1))}
+    Counter.State.dec()
+    {:noreply, socket}
+  end
+
+  def handle_info({:count, count}, socket) do
+    {:noreply, assign(socket, :count, count)}
   end
 end
