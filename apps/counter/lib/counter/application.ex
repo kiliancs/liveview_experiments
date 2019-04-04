@@ -8,8 +8,8 @@ defmodule Counter.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Starts a worker by calling: Counter.Worker.start_link(arg)
-      # {Counter.Worker, arg}
+      # Starts a worker by calling: Counter.State.start_link(0)
+      {Counter.State, 0}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
