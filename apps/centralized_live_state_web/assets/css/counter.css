@@ -1,0 +1,29 @@
+:root {
+  --block-size: 20px;
+}
+
+.counter-blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--block-size));
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+.counter-block {
+  box-sizing: border-box;
+  width: var(--block-size);
+  height: var(--block-size);
+  border: 1px solid #555;
+  background-color: orange;
+  animation: slide-up 0.8s ease;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: scale(3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

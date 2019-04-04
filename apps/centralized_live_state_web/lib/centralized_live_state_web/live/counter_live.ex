@@ -9,6 +9,13 @@ defmodule CentralizedLiveStateWeb.CounterLive do
       <button phx-click="boom" class="alert-danger">BOOM</button>
       <button phx-click="dec">-</button>
       <button phx-click="inc">+</button>
+      <div class="counter-blocks">
+        <%= if @count > 0 do %>
+          <%= for n <- 1..@count do %>
+            <div class="counter-block"></div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     """
   end
