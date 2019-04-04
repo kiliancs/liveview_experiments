@@ -1,6 +1,8 @@
 defmodule CentralizedLiveStateWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :centralized_live_state_web
 
+  socket "/live", Phoenix.LiveView.Socket
+
   socket "/socket", CentralizedLiveStateWeb.UserSocket,
     websocket: true,
     longpoll: false

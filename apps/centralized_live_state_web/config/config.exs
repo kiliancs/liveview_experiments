@@ -13,7 +13,10 @@ config :centralized_live_state_web, CentralizedLiveStateWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "xtJG6FdzCmo9gbSfJZgxmTRYzSXPcI5ch96HaIAPF2xEc+u3q0JY6Mb/4l3qvqTn",
   render_errors: [view: CentralizedLiveStateWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: CentralizedLiveStateWeb.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: CentralizedLiveStateWeb.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "TleEvXksXbdfW4oXJkTRyE7Vg2QOr1uH"
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

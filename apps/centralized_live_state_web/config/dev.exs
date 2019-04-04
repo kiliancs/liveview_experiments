@@ -56,6 +56,7 @@ config :centralized_live_state_web, CentralizedLiveStateWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/centralized_live_state_web/{live,views}/.*(ex)$",
-      ~r"lib/centralized_live_state_web/templates/.*(eex)$"
+      ~r"lib/centralized_live_state_web/templates/.*(eex)$",
+      ~r{lib/my_app_web/live/.*(ex)$}
     ]
   ]
