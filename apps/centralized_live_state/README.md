@@ -1,3 +1,0 @@
-# CentralizedLiveState
-
-**TODO: Add description**

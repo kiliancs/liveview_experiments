@@ -43,9 +43,9 @@ defmodule CentralizedLiveStateWeb.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
       {:gettext, "~> 0.11"},
-      {:centralized_live_state, in_umbrella: true},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:counter, in_umbrella: true}
     ]
   end
 
