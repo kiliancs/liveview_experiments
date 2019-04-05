@@ -11,7 +11,7 @@ defmodule CentralizedLiveStateWeb.CounterLive do
       <button phx-click="inc">+</button>
       <div class="counter-blocks">
         <%= if @count > 0 do %>
-          <%= for n <- 1..@count do %>
+          <%= for _n <- 1..@count do %>
             <div class="counter-block"></div>
           <% end %>
         <% end %>
@@ -42,7 +42,7 @@ defmodule CentralizedLiveStateWeb.CounterLive do
   end
 
   @impl true
-  def terminate(reason, state) do
+  def terminate(_reason, _state) do
     Counter.State.unsubscribe()
   end
 end

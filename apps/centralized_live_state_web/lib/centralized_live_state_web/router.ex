@@ -20,6 +20,7 @@ defmodule CentralizedLiveStateWeb.Router do
     get "/", PageController, :index
 
     live "/counter", CounterLive
+    live "/vs", VsLive
   end
 
   # Other scopes may use custom stacks.

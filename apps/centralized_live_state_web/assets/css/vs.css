@@ -1,0 +1,62 @@
+.countdown-number {
+    display: block;
+    font-size: 30px;
+    text-align: center;
+}
+.countdown .countdown-number {
+    font-size: 50px;
+}
+
+.winner {
+    font-size: 40px;
+    text-align: center;
+}
+
+.leaderboard {
+    font-size: 18px;
+}
+
+.leaderboard td {
+    white-space: nowrap;
+}
+
+.leaderboard .index::after {
+    content: '.';
+}
+.leaderboard .team {
+    width: 100%;
+}
+.leaderboard .score {
+    text-align: right;
+}
+.leaderboard .score::after {
+    content: ' points';
+}
+
+.leaderboard .team, .leaderboard .score {
+    font-weight: bold;
+}
+
+.inc-btn {
+    width: 100%;
+}
+
+.teams {
+    display: flex;
+}
+.teams .team {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1em;
+}
+.teams .team .score {
+    flex: 1;
+}
+
+.playing {
+    text-align: center;
+}
+.playing .score {
+    font-size: 50px;
+}
