@@ -40,4 +40,9 @@ defmodule CentralizedLiveStateWeb.CounterLive do
   def handle_info({:count, count}, socket) do
     {:noreply, assign(socket, :count, count)}
   end
+
+  @impl true
+  def terminate(reason, state) do
+    Counter.State.unsubscribe()
+  end
 end
