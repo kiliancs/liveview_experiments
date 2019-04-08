@@ -23,6 +23,7 @@ defmodule Vs.State do
     Phoenix.PubSub.unsubscribe(Vs.PubSub, self(), "vs")
   end
 
+  def reset, do: GenServer.call(__MODULE__, :reset)
   def get_state, do: GenServer.call(__MODULE__, :get_state)
   def add_team(name), do: GenServer.call(__MODULE__, {:add_team, name})
   def inc_team(team), do: GenServer.call(__MODULE__, {:inc_team, team})
@@ -32,6 +33,9 @@ defmodule Vs.State do
   def init(state) do
     {:ok, state}
   end
+
+  @impl true
+  def handle_call(:reset, _from, {:ended, leaderboard}), do: {:idle, leaderboard}
 
   @impl true
   def handle_call(:get_state, _from, state), do: {:reply, state, state}
