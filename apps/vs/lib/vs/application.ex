@@ -10,7 +10,7 @@ defmodule Vs.Application do
     children = [
       {Phoenix.PubSub.PG2, name: Vs.PubSub},
       # Starts a worker by calling: Vs.State.start_link(nil)
-      {Vs.State, {:idle, %{"Team 1" => 0, "Team 2" => 0}}}
+      {Vs.State, {:idle, %{"2 spaces" => 0, "4 spaces" => 0, "Tabs" => 0}}}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
