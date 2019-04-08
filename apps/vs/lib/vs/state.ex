@@ -2,9 +2,12 @@ defmodule Vs.State do
   use GenServer
 
   @type leaderboard :: %{String.t() => number}
-  @type state :: {:idle, leaderboard}, {:countdown, number, leaderboard} | {:playing, number, leaderboard} | {:ended, leaderboard}
+  @type(
+    state :: {:idle, leaderboard},
+    {:countdown, number, leaderboard} | {:playing, number, leaderboard} | {:ended, leaderboard}
+  )
 
-  @game_duration 15
+  @game_duration 30
   @countdown_duration 3
 
   def start_link(state) do
@@ -54,7 +57,7 @@ defmodule Vs.State do
   def handle_call(:start_countdown, _from, {_status, leaderboard}) do
     :timer.send_after(1000, :dec_countdown)
 
-    new_leaderboard = leaderboard |> Enum.map(fn ({team, _score}) -> {team, 0} end) |> Map.new
+    new_leaderboard = leaderboard |> Enum.map(fn {team, _score} -> {team, 0} end) |> Map.new()
 
     Phoenix.PubSub.broadcast!(Vs.PubSub, "vs", {:countdown, @countdown_duration, new_leaderboard})
     {:reply, :ok, {:countdown, @countdown_duration, new_leaderboard}}
